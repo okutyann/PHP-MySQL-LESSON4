@@ -11,14 +11,14 @@
 <body>
     <?php
     $db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
-    $records = $db->query('select * from my_item');
+    $records = $db->query('select count(*) as cnt from my_item');
     // 中身の表示
     // var_dump($records);
     if ($records) {
         // fetch_assoc = fetch データを１件取り出すよの意味
         //             = assoc アソシエイト　連想配列として取り出すよ 
         while ($record = $records->fetch_assoc()) {
-            echo $record['item_name'] . '<br>';
+            echo $record['cnt'] . '<br>';
         }
     } else {
         echo $db->error;

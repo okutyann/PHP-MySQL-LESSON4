@@ -24,7 +24,7 @@ if (!$memos) {
     <?php while ($memo = $memos->fetch_assoc()) : ?>
         <div>
             <!-- mb_substr = 文字数を指定したとこまで表示する 0,50の場合は0文字目から50文字目まで表示 -->
-            <h2><a href="#"><?php echo htmlspecialchars(mb_substr($memo['memo'], 0, 50)); ?></a></h2>
+            <h2><a href="memo.php?id=<?php echo $memo['id']; ?>"><?php echo htmlspecialchars(mb_substr($memo['memo'], 0, 50)); ?></a></h2>
             <time><?php echo htmlspecialchars($memo['created']); ?></time>
         </div>
         <hr>

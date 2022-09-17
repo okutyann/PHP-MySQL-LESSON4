@@ -14,12 +14,22 @@
     if (!$stme) {
         die($db->error);
     }
-    $id = 12;
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    // $idが正しくない場合にエラー
+    if (!$id) {
+        echo '表示するメモを指定してください';
+        exit();
+    }
     $stme->bind_param('i', $id);
     $stme->execute();
     // bind_result テーブルから持ってくるときにその値に変数をつける
     $stme->bind_result($id, $memos, $created);
-    $stme->fetch();
+    $result = $stme->fetch();
+    // 正しく指定はされたもののメモが見つからなかったとき
+    if (!$result) {
+        echo '指定されたメモは見つかりませんでした';
+        exit();
+    }
     ?>
     <div><?php echo htmlspecialchars($memos); ?></div>
 </body>

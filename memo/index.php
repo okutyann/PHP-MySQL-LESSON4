@@ -1,5 +1,6 @@
 <?php
 require('dbconnect.php');
+
 $memos = $db->query('select * from memos order by id desc');
 if (!$memos) {
     die($db->error);
@@ -19,9 +20,11 @@ if (!$memos) {
 
 <body>
     <h1>メモ帳</h1>
+    <p>→<a href="input.html">新しいメモ</a></p>
     <?php while ($memo = $memos->fetch_assoc()) : ?>
         <div>
-            <h2><a href="#"><?php echo htmlspecialchars($memo['memo']); ?></a></h2>
+            <!-- mb_substr = 文字数を指定したとこまで表示する 0,50の場合は0文字目から50文字目まで表示 -->
+            <h2><a href="#"><?php echo htmlspecialchars(mb_substr($memo['memo'], 0, 50)); ?></a></h2>
             <time><?php echo htmlspecialchars($memo['created']); ?></time>
         </div>
         <hr>

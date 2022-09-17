@@ -10,6 +10,7 @@ $stmt->bind_param('s', $memo);
 $ret = $stmt->execute();
 if ($ret) :
     echo '登録されました。';
+    echo '<br><p>→<a href="index.php">トップへ戻る</a></p>';
 else :
     echo $db->error;
 endif;

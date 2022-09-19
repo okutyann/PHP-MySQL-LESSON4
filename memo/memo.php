@@ -34,7 +34,8 @@
     <div><?php echo htmlspecialchars($memos); ?></pre>
     </div>
     <p>
-        <a href="update.php?id=<?php echo $id; ?>">編集する</a>
+        <a href="update.php?id=<?php echo $id; ?>">編集する</a>|
+        <a href="delete.php?id=<?php echo $id; ?>">削除する</a>|
         <a href="/memo">一覧へ</a>
     </p>
 </body>

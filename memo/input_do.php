@@ -1,6 +1,6 @@
 <?php
 // filter_input スペシャラキャラズを無効化
-$memo = filter_input(INPUT_POST, 'memo', FILTER_SANITIZE_SPECIAL_CHARS);
+$memo = filter_input(INPUT_POST, 'memo', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 require('dbconnect.php');
 $stmt = $db->prepare('insert into memos(memo) values(?)');
 if (!$stmt) :

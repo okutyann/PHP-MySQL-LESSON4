@@ -26,6 +26,7 @@ if (!$result) {
 
 <body>
   <form action="update_do.php" method="post">
+    <input type="hidden" name='id' value="<?php echo $id; ?>">
     <textarea name="memo" cols="50" rows="10" placeholder="メモを入力してください。"><?php echo htmlspecialchars($memo); ?>
     </textarea>
     <br />

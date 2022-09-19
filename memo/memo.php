@@ -31,7 +31,12 @@
         exit();
     }
     ?>
-    <div><?php echo htmlspecialchars($memos); ?></div>
+    <div><?php echo htmlspecialchars($memos); ?></pre>
+    </div>
+    <p>
+        <a href="update.php?id=<?php echo $id; ?>">編集する</a>
+        <a href="/memo">一覧へ</a>
+    </p>
 </body>
 
 </html>
